@@ -1,1 +1,15 @@
 /Debug/
+
+/Release/
+
+.xdchelp
+
+.config/*
+
+.launches/*
+
+
+
+
+
+

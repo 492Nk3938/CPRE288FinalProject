@@ -14,4 +14,5 @@
 	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate"/>
 	<filesToOpen value="main.c"/>
 	<isTargetManual value="false"/>
+	<origin value="/Users/nicholaskrabbenhoft/Google Drive/Code/C Code/288/CPRE288FinalProject"/>
 </projectOptions>
