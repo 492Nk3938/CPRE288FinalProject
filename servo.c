@@ -55,7 +55,7 @@ void servo_set_angle(float angle){
 
     //TODO
 
-    //time_to_be_1 = convert angle to time //Note this may be impossible without access to the bot
+    //time_to_be_1 = convert angle to time //Note this may be impossible to do accurately without access to the bot
 
 
 }
