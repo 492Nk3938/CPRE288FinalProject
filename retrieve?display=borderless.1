@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="robots" content="noarchive"/><meta name="googlebot" content="noarchive"/><meta name="robots" content="noindex" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="googlebot" content="noindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="none" />
+
+<link href="https://ok6static.oktacdn.com/assets/img/icons/favicons/favicon-16x16.c55b69ae49b08edc7c000d12b8e5483f.png" rel="icon" type="image/png" sizes="16x16"/><link href="https://ok6static.oktacdn.com/assets/img/icons/favicons/favicon-32x32.99bc356b6e293b927f9e3a2b69761c26.png" rel="icon" type="image/png" sizes="32x32"/><link href="https://ok6static.oktacdn.com/assets/img/icons/favicons/favicon-96x96.de98828614fa33ca04fcfaa07679f345.png" rel="icon" type="image/png" sizes="96x96"/><meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/img/icons/favicons/ms-icon-144x144.png">
+<meta name="application-name" content="Okta"/>
+<meta name="theme-color" content="#ffffff">
+<meta name="msapplication-config" content="/img/icons/favicons/browserconfig.xml"/>
+
+<title>
+    Iowa State University - Signing in...</title>
+<!--[if IE]><link href="https://ok6static.oktacdn.com/assets/css/ie/ie.67af4e98a9276b3eedc54211bb17ace8.css" type="text/css" rel="stylesheet"/><![endif]-->
+<!--[if gte IE 9]><link href="https://ok6static.oktacdn.com/assets/css/ie/ie9.e98bfbcf44b614a6d63c04328b8b7b5e.css" type="text/css" rel="stylesheet"/><![endif]-->
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<script>
+    var okta = {
+        migrateMute: true,
+        locale: 'en',
+        debug: false,
+        deployEnv: '',
+        userId: '',
+        settings: {
+            orgId: '',
+            orgName: '',
+            serverStatus: 'ACTIVE',
+            persona: '',
+            isDeveloperConsole: '' === 'true',
+            isPreview: 'false' === 'true',
+            permissions: []
+        },
+        logHasFeatureError: function(message) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/api/internal/client-logging/has-feature-error', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+              message: message
+            }));
+        }
+
+    };
+</script>
+<script>window.okta || (window.okta = {}); okta.cdnUrlHostname = "//ok6static.oktacdn.com"; okta.cdnPerformCheck = false;</script><script>window.okta || (window.okta = {});window.okta.mixpanel = false;</script><script src="https://ok6static.oktacdn.com/assets/js/jquery-1.12.4.a18039aad2feb9a81bea5fc1e8f53cb0.js" crossorigin="anonymous" integrity="sha384-P+7r+n6Kfr1ZaTzUPOUCJ9m3roXeE9pjeMocPJx2w7CIk0kyj0laHmphnbw4Sd8w" type="text/javascript"></script><!--[if lt IE 9]><script src="https://ok6static.oktacdn.com/assets/enduser/js/vendor/css3-mediaqueries.fa295f0132f5335f352071ca3613a94a.js" crossorigin="anonymous" integrity="sha384-7pU2GSgyec3nzQMUNSuzanfJelP9UCOyHil0bOv+WnPKSS9lNA/tcxPyr7NV2w6c" type="text/javascript"></script><![endif]-->
+
+<script>if (window.module) module = window.module;</script>
+
+</head>
+<body id="app" class="enduser-app  okta-legacy-theme  ">
+<noscript><div id="noscript-mask"></div><div id="noscript-msg" class="infobox infobox-warning infobox-compact"><span class="icon warning-16"></span><h3>Javascript is disabled on your browser.</h3><p>Please enable Javascript and refresh this page to use Okta.</p></div></noscript>
+
+<div id="container">
+<link href="https://ok6static.oktacdn.com/assets/css/sections/interstitial.a54a1edc95056b8486c088d765565d49.css" type="text/css" rel="stylesheet"/><script>
+    var interstitialMinWaitTime = 1200;
+    </script>
+<!--[if lte IE 9]>
+            <style type="text/css">
+                #okta-auth-spin {
+                    top: 35%;
+                }
+            </style>
+        <![endif]-->
+
+        <!--[if lte IE 8]>
+            <style type="text/css">
+                #okta-auth-band {
+                    height: 200px;
+                }
+            </style>
+        <![endif]-->
+
+        <div id="okta-interstitial-wrap">
+                <div class="okta-auth-mask-new-interstitial"></div>
+        <div class="new-interstitial" id="new-interstitial">
+        <div id="okta-auth-band">
+            <img src="https://ok6static.oktacdn.com/assets/img/ui/indicators/new_interstitial_static.9481d4731547cec09b26be142dbeec61.png" width="376" height="160" alt="Please wait" class="new-img-static"/><img src="https://ok6static.oktacdn.com/assets/img/ui/indicators/new_interstitial.c41c3b6f3a84458aca9a5919f238fbe3.gif" width="376" height="160" alt="Please wait" class="new-img"/><img src="https://ok6static.oktacdn.com/assets/img/logos/okta_watermark.4a7f2ccf7d0a787cff6f59fb67f72843.png" width="106" height="36" alt="Okta" class="okta-logo"/><div id="okta-auth-spin"></div>
+                    <div id="okta-auth-spin-small"></div>
+                <h1 id="okta-auth-heading" class ='signing-in-text'>Signing In</h1>
+        </div>
+        </div> <!--new-interstitial -->
+        </div> <!--okta-interstitial-wrap -->
+
+        <script type="text/javascript">
+            $(function(){
+                var isFFSVGFixEnabled = 'false';
+                if ($('#okta-auth-spin').hasClass('android-spinner')) {
+                    return;
+                }
+
+                // Remove gif animation for Safari
+                var isSafari = /AppleWebKit/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+                if (isFFSVGFixEnabled && isSafari) {
+                    $('.new-img').hide(0);
+                } else {
+                    $('.new-img').on('load', function(evt){
+                        //gif loaded correctly, fade out static asset and fade in gif
+                        //making sure we show the graphic before the form submit happens in 200ms
+                        $('.new-img-static').hide(0,function(){
+                            $('.new-img').show(0);
+                        });
+                    });
+                }
+
+                //For cached images with src the load event fires just before you add a listener for it. Hence setting the source again to make sure the event handlers fire in the right order.
+                var assetUrl = $('.new-img').attr('src');
+                $('.new-img').attr('src', assetUrl);
+
+                var standard = document.getElementById('okta-auth-spin');
+                var small = document.getElementById('okta-auth-spin-small');
+
+                var optsStandard = {
+                    lines: 9, // The number of lines to draw
+                    length: 0, // The length of each line
+                    width: 8, // The line thickness
+                    radius: 21, // The radius of the inner circle
+                    corners: 1, // Corner roundness (0..1)
+                    rotate: 0, // The rotation offset
+                    direction: 1, // 1: clockwise, -1: counterclockwise
+                    color: '#fff', // #rgb or #rrggbb
+                    speed: 1, // Rounds per second
+                    trail: 60, // Afterglow percentage
+                    shadow: false, // Whether to render a shadow
+                    hwaccel: false, // Whether to use hardware acceleration
+                    className: 'okta-auth-spinner', // The CSS class to assign to the spinner
+                    zIndex: 2e9, // The z-index (defaults to 2000000000)
+                    top: 'auto', // Top position relative to parent in px
+                    left: 'auto' // Left position relative to parent in px
+                };
+
+                var optsSmall = {
+                    lines: 9, // The number of lines to draw
+                    length: 0, // The length of each line
+                    width: 6, // The line thickness
+                    radius: 14, // The radius of the inner circle
+                    corners: 1, // Corner roundness (0..1)
+                    rotate: 0, // The rotation offset
+                    direction: 1, // 1: clockwise, -1: counterclockwise
+                    color: '#fff', // #rgb or #rrggbb
+                    speed: 1, // Rounds per second
+                    trail: 60, // Afterglow percentage
+                    shadow: false, // Whether to render a shadow
+                    hwaccel: false, // Whether to use hardware acceleration
+                    className: 'okta-auth-spinner', // The CSS class to assign to the spinner
+                    zIndex: 2e9, // The z-index (defaults to 2000000000)
+                    top: 'auto', // Top position relative to parent in px
+                    left: 'auto' // Left position relative to parent in px
+                };
+                if (typeof Spinner === 'function') {
+                    var spinnerStandard = new Spinner(optsStandard);
+                    var spinnerSmall = new Spinner(optsSmall);
+
+                    spinnerStandard.spin(standard);
+                    spinnerSmall.spin(small);
+                }
+
+            });
+        </script>
+    <form id="appForm" action="https&#x3a;&#x2f;&#x2f;login.iastate.edu&#x2f;index.html" method="GET">
+    <input name="SAMLRequest" type="hidden" value="fZLBTuMwFEV&#x2f;JfI&#x2b;ceykbbCaomoqpEqAEJRZzM44r42ZxPb4OS39e0wgqLOYkXfW87lX53l5&#x2f;dZ3yRE8amtqwrKcJGCUbbQ51OR5d5NW5Hq1RNl33In1EFrzCH8GwJCsEcGH&#x2b;OyHNTj04J&#x2f;AH7WC58fbmrQhOBSUaolBBsjs7yAzZXuKaOlIo7mV5WBeqvbVzXfFubribk6STURrI8NYZ6J09qBNNrGgGag2Dbxlbeg7ktxYr2CsVpO97BBIst3URDcFZ2zB&#x2b;JyVZZUzHk9RXS1m83IRg7aIA2xNRJpQE57zPM3LNGc7nouSiaLIqtnsF0l&#x2b;Tm74h5toy6D41FGTwRthJWoURvaAIijxtL67FXFUOG&#x2b;DVbYjX&#x2f;bEGOgvCf8HyMkvWU0eTqfThcnRIn5KT2PcUTfgKbpDe1J79yq1U2Dl8QXPS3pZ4Xud9zFzu3mwnVbnD4u9DP&#x2b;uxDI23ugm3Y&#x2b;jYjDoQOm9hobQ1VfG359k9Q4&#x3d;"/>
+    <input name="RelayState" type="hidden" value="&#x25;2Fapp&#x25;2Fiowastateuniversity_canvas_1&#x25;2Fexk14tg9e2nAKZDJ62p7&#x25;2Fsso&#x25;2Fsaml&#x25;3FSAMLRequest&#x25;3DfZJLT8MwEITv&#x25;252FIrI98RxmvKw2kqFClGeFS0cuFSOsxSLxA5eu5R&#x25;252Fj5NQAQe4rnfm84x2hKKuGj717kXfw5sHdNGurjTy7mFMvNXcCFTItagBuZN8Ob255lmS8sYaZ6SpyA&#x25;252FJ&#x25;252FwqBCNYpo0k0n43JGsriuMyKPB6wIo1zVrBYCBjGAg4lG7J8OCwZiR7BYtCMSbAIQkQPc41OaBdGaZbGaR6nbJWlPGd8MHgi0SzkUFq4TvXiXIOcUiWCxkFiXp1IpKmpaBqqzHs&#x25;252F9lptW477WEuhtwLXjMLuleVucwKZnl49zS4Ps&#x25;252BaIIhraJiXRdJ&#x25;252FmzGj0Ndgl2K2S8HB&#x25;252F&#x25;252FU3tzZI9HEpPK7NR&#x25;252Bstj8dXhqdKl0pv&#x25;252F6yv6JeQXq9UiXtwtV2Qyan14V4qdtNA26T5UokJP1kvnLXSR2&#x25;252BVsRH9qRv0J3AbafLYwlZIf0bmxtXB&#x25;252Ff4YlrJuoMn7uVrnX2IBUzwrKUExVmfczC&#x25;252BEHYxL4QOikh&#x25;252F4&#x25;252BtcnBJw&#x25;253D&#x25;253D"/>
+    <input name="SigAlg" type="hidden" value="http&#x3a;&#x2f;&#x2f;www.w3.org&#x2f;2001&#x2f;04&#x2f;xmldsig-more&#x23;rsa-sha256"/>
+        <input name="Signature" type="hidden" value="PuP9opW6YjTL7ezjS8h2T57nIwA4NgpX3n&#x2f;jAB1Jo&#x2f;zbBvhLcCQ6MQU4gIekVJX3kksukbL20jzF29PDRLMRaT15DnbvdF0PqepGQsvPd4Oakq8SVSUJIsXq5tMi1Dx3kXJ&#x2f;d8XCcGzO&#x2f;x&#x2f;mpxPlyWz2b3M&#x2f;nNTygu1dXPYhzq5uoMxuxVl0puqTtZKE43gj9HJNhpsebQmLs5cn03N9w8WzAKtV1QXfLDSUggm&#x2b;2fn72f4Fr2DtXfVfehF&#x2f;M6absbzK4&#x2f;Thorx8fSAFE&#x2b;Fi8eEyBKjsJoocJosnwUc5D9jjj2poOzef6wydYr9MQEsKXJJoXPhUGMF6YDCbD&#x2b;6PZw&#x3d;&#x3d;"/>
+    </form>
+
+<script src="https://ok6static.oktacdn.com/assets/js/app/sso/interstitial.474dce61acfac4a4d016921943cf2a68.js" crossorigin="anonymous" integrity="sha384-rIRjIHrr5XnyB1DG8t+uL1F3e5asM+gYMial0fj56hCWADEBdp3BiwtOAnNpU7Zc" type="text/javascript"></script></div>
+<!-- close #container -->
+
+</body>
+</html>

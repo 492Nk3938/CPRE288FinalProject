@@ -9,9 +9,8 @@
 
 
 #include <inc/tm4c123gh6pm.h>
-#include "interrupt.h"
+#include "open_interface.h"
 
-void timer_inturupt();
 
 void servo_set_angle(float angle);
 

@@ -1,0 +1,33 @@
+--2020-04-01 15:36:26--  https://canvas.iastate.edu/courses/68525/external_tools/retrieve?display=borderless
+Resolving canvas.iastate.edu (canvas.iastate.edu)... 34.236.227.117, 3.218.3.6, 34.225.134.112
+Connecting to canvas.iastate.edu (canvas.iastate.edu)|34.236.227.117|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://canvas.iastate.edu/login [following]
+--2020-04-01 15:36:26--  https://canvas.iastate.edu/login
+Reusing existing connection to canvas.iastate.edu:443.
+HTTP request sent, awaiting response... 302 Found
+Location: https://canvas.iastate.edu/login/saml [following]
+--2020-04-01 15:36:26--  https://canvas.iastate.edu/login/saml
+Reusing existing connection to canvas.iastate.edu:443.
+HTTP request sent, awaiting response... 302 Found
+Location: https://sso.canvaslms.com/delegated_auth_pass_through?canvas_host=canvas.iastate.edu&target=https%3A%2F%2Fiastate.okta.com%2Fapp%2Fiowastateuniversity_canvas_1%2Fexk14tg9e2nAKZDJ62p7%2Fsso%2Fsaml%3FSAMLRequest%3DfVJdT8IwFH33Vyx937qNOUIDJFNixE8C6AMvpBsXbNza2dsi%252FHu7TSI%252B6Ftzez7uOblD5FVZs8yaNzmHDwtovENVSmTtx4hYLZniKJBJXgEyU7BF9vjA4iBktVZGFaokZ5T%252FGRwRtBFKEm86GZE1pAOeDsLUh%252BQy9ZNt3vPzy0HuR1E%252FTBL3itI%252B8V5Bo%252BOMiJNwREQLU4mGS%252BNGYRz6YeKH0TIOWS9lcboi3sTlEJKblvVmTI2MUsEdx0Cg3g0PClVRXtdUqM9ubKXYNz7muC643HNcRxQO71FidgOIZXa%252Fmtylcd2niIo2SYmXndJcK4m2Ar0AvRcFvMwfflw7seBkDhtLS7UT8ltj9t3hlZAbIXf%252F15d3IGS3y%252BXMnz0vlmQ8bHRYW4oeN6ZN0lOoQLietC2M1dBGbsDxkJ5zht0JPDm36WSmSlEcvRulK27%252BXiYKonYiNv62hTIrsYZCbAVsXDFlqT6vNbgNRsT5A6HjzvT3qY0vvgA%253D [following]
+--2020-04-01 15:36:26--  https://sso.canvaslms.com/delegated_auth_pass_through?canvas_host=canvas.iastate.edu&target=https%3A%2F%2Fiastate.okta.com%2Fapp%2Fiowastateuniversity_canvas_1%2Fexk14tg9e2nAKZDJ62p7%2Fsso%2Fsaml%3FSAMLRequest%3DfVJdT8IwFH33Vyx937qNOUIDJFNixE8C6AMvpBsXbNza2dsi%252FHu7TSI%252B6Ftzez7uOblD5FVZs8yaNzmHDwtovENVSmTtx4hYLZniKJBJXgEyU7BF9vjA4iBktVZGFaokZ5T%252FGRwRtBFKEm86GZE1pAOeDsLUh%252BQy9ZNt3vPzy0HuR1E%252FTBL3itI%252B8V5Bo%252BOMiJNwREQLU4mGS%252BNGYRz6YeKH0TIOWS9lcboi3sTlEJKblvVmTI2MUsEdx0Cg3g0PClVRXtdUqM9ubKXYNz7muC643HNcRxQO71FidgOIZXa%252Fmtylcd2niIo2SYmXndJcK4m2Ar0AvRcFvMwfflw7seBkDhtLS7UT8ltj9t3hlZAbIXf%252F15d3IGS3y%252BXMnz0vlmQ8bHRYW4oeN6ZN0lOoQLietC2M1dBGbsDxkJ5zht0JPDm36WSmSlEcvRulK27%252BXiYKonYiNv62hTIrsYZCbAVsXDFlqT6vNbgNRsT5A6HjzvT3qY0vvgA%253D
+Resolving sso.canvaslms.com (sso.canvaslms.com)... 54.175.7.48, 3.82.111.161, 52.22.119.2
+Connecting to sso.canvaslms.com (sso.canvaslms.com)|54.175.7.48|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://iastate.okta.com/app/iowastateuniversity_canvas_1/exk14tg9e2nAKZDJ62p7/sso/saml?SAMLRequest=fVJdT8IwFH33Vyx937qNOUIDJFNixE8C6AMvpBsXbNza2dsi%2FHu7TSI%2B6Ftzez7uOblD5FVZs8yaNzmHDwtovENVSmTtx4hYLZniKJBJXgEyU7BF9vjA4iBktVZGFaokZ5T%2FGRwRtBFKEm86GZE1pAOeDsLUh%2BQy9ZNt3vPzy0HuR1E%2FTBL3itI%2B8V5Bo%2BOMiJNwREQLU4mGS%2BNGYRz6YeKH0TIOWS9lcboi3sTlEJKblvVmTI2MUsEdx0Cg3g0PClVRXtdUqM9ubKXYNz7muC643HNcRxQO71FidgOIZXa%2Fmtylcd2niIo2SYmXndJcK4m2Ar0AvRcFvMwfflw7seBkDhtLS7UT8ltj9t3hlZAbIXf%2F15d3IGS3y%2BXMnz0vlmQ8bHRYW4oeN6ZN0lOoQLietC2M1dBGbsDxkJ5zht0JPDm36WSmSlEcvRulK27%2BXiYKonYiNv62hTIrsYZCbAVsXDFlqT6vNbgNRsT5A6HjzvT3qY0vvgA%3D [following]
+--2020-04-01 15:36:27--  https://iastate.okta.com/app/iowastateuniversity_canvas_1/exk14tg9e2nAKZDJ62p7/sso/saml?SAMLRequest=fVJdT8IwFH33Vyx937qNOUIDJFNixE8C6AMvpBsXbNza2dsi%2FHu7TSI%2B6Ftzez7uOblD5FVZs8yaNzmHDwtovENVSmTtx4hYLZniKJBJXgEyU7BF9vjA4iBktVZGFaokZ5T%2FGRwRtBFKEm86GZE1pAOeDsLUh%2BQy9ZNt3vPzy0HuR1E%2FTBL3itI%2B8V5Bo%2BOMiJNwREQLU4mGS%2BNGYRz6YeKH0TIOWS9lcboi3sTlEJKblvVmTI2MUsEdx0Cg3g0PClVRXtdUqM9ubKXYNz7muC643HNcRxQO71FidgOIZXa%2Fmtylcd2niIo2SYmXndJcK4m2Ar0AvRcFvMwfflw7seBkDhtLS7UT8ltj9t3hlZAbIXf%2F15d3IGS3y%2BXMnz0vlmQ8bHRYW4oeN6ZN0lOoQLietC2M1dBGbsDxkJ5zht0JPDm36WSmSlEcvRulK27%2BXiYKonYiNv62hTIrsYZCbAVsXDFlqT6vNbgNRsT5A6HjzvT3qY0vvgA%3D
+Resolving iastate.okta.com (iastate.okta.com)... 52.14.242.26, 52.14.242.28, 52.14.242.29
+Connecting to iastate.okta.com (iastate.okta.com)|52.14.242.26|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://iastate.okta.com/login/login.htm?fromURI=%2Fapp%2Fiowastateuniversity_canvas_1%2Fexk14tg9e2nAKZDJ62p7%2Fsso%2Fsaml%3FSAMLRequest%3DfVJdT8IwFH33Vyx937qNOUIDJFNixE8C6AMvpBsXbNza2dsi%252FHu7TSI%252B6Ftzez7uOblD5FVZs8yaNzmHDwtovENVSmTtx4hYLZniKJBJXgEyU7BF9vjA4iBktVZGFaokZ5T%252FGRwRtBFKEm86GZE1pAOeDsLUh%252BQy9ZNt3vPzy0HuR1E%252FTBL3itI%252B8V5Bo%252BOMiJNwREQLU4mGS%252BNGYRz6YeKH0TIOWS9lcboi3sTlEJKblvVmTI2MUsEdx0Cg3g0PClVRXtdUqM9ubKXYNz7muC643HNcRxQO71FidgOIZXa%252Fmtylcd2niIo2SYmXndJcK4m2Ar0AvRcFvMwfflw7seBkDhtLS7UT8ltj9t3hlZAbIXf%252F15d3IGS3y%252BXMnz0vlmQ8bHRYW4oeN6ZN0lOoQLietC2M1dBGbsDxkJ5zht0JPDm36WSmSlEcvRulK27%252BXiYKonYiNv62hTIrsYZCbAVsXDFlqT6vNbgNRsT5A6HjzvT3qY0vvgA%253D [following]
+--2020-04-01 15:36:27--  https://iastate.okta.com/login/login.htm?fromURI=%2Fapp%2Fiowastateuniversity_canvas_1%2Fexk14tg9e2nAKZDJ62p7%2Fsso%2Fsaml%3FSAMLRequest%3DfVJdT8IwFH33Vyx937qNOUIDJFNixE8C6AMvpBsXbNza2dsi%252FHu7TSI%252B6Ftzez7uOblD5FVZs8yaNzmHDwtovENVSmTtx4hYLZniKJBJXgEyU7BF9vjA4iBktVZGFaokZ5T%252FGRwRtBFKEm86GZE1pAOeDsLUh%252BQy9ZNt3vPzy0HuR1E%252FTBL3itI%252B8V5Bo%252BOMiJNwREQLU4mGS%252BNGYRz6YeKH0TIOWS9lcboi3sTlEJKblvVmTI2MUsEdx0Cg3g0PClVRXtdUqM9ubKXYNz7muC643HNcRxQO71FidgOIZXa%252Fmtylcd2niIo2SYmXndJcK4m2Ar0AvRcFvMwfflw7seBkDhtLS7UT8ltj9t3hlZAbIXf%252F15d3IGS3y%252BXMnz0vlmQ8bHRYW4oeN6ZN0lOoQLietC2M1dBGbsDxkJ5zht0JPDm36WSmSlEcvRulK27%252BXiYKonYiNv62hTIrsYZCbAVsXDFlqT6vNbgNRsT5A6HjzvT3qY0vvgA%253D
+Reusing existing connection to iastate.okta.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘retrieve?display=borderless’
+
+retrieve?display=borderless                  [<=>                                                                                ]       0  --.-KB/s               retrieve?display=borderless                  [ <=>                                                                               ]  11.46K  --.-KB/s    in 0s      
+
+2020-04-01 15:36:27 (76.7 MB/s) - ‘retrieve?display=borderless’ saved [11735]
+

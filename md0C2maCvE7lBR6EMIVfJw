@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html dir="ltr" lang=en>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Studio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta name="apple-mobile-web-app-title" content="Studio">
+    <meta name="application-name" content="Studio">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="/icons/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png?v=2.0">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png?v=2.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png?v=2.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png?v=2.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png?v=2.0">
+      <link rel="stylesheet" href="/__build__/default/app-cf114d47dd10efa6ef7d.css">
+
+
+
+      <script src="/vendor/raven.3.17.0.min.js"></script>
+    
+
+    <script src="https://files.instructuremedia.com/som/js/som-launcher-2.0.3.js"></script>
+
+    <script type="text/javascript">
+      // stub Raven for local development or when otherwise missing
+      window.Raven = window.Raven || {
+        context: function(cb) { return cb(); },
+        setUserContext: function() {},
+        captureException: function() {},
+        captureMessage: function() {},
+      }
+    </script>
+
+    <script type="text/javascript">
+      window.ARC_VERSION = "4fc003221 2020-03-19";
+      window.StudioConfig = {
+        allRegions:             null,
+        browserLocale:         "en",
+        canLolcalize:           false,
+        featureFlags:           {"react_media_player":true,"swift_studio_cdn_resolution":true,"test-enabled-flag":true,"caption_editing":true,"asr_captions":true,"video_quizzing":true},
+        highContrast:           false,
+        loginProviders:         ["arc","canvas"],
+        pandapushAppId:        "uf03FARJV6JMquuMjIVd",
+        pandapushUrl:          "https://pandapush-iad-prod.inscloudgate.net",
+        pandataHost:           "https://pandata-events.prod-iad.inshosteddata.com",
+        pandataTokenTimeoutSeconds:     86400,
+        pendoApiKey:           "aa4fbae7-e843-4039-5303-2a5baa88cce3",
+        quizApiUrl:            "https://arc-production-906.quiz-api-iad-prod.instructure.com",
+        s3SigVersion:          "",
+        serverRegion:          "us-east-1",
+        terms:                  {"path":"/terms.md","last_updated":"August 30th, 2016","last_hash":"e383255bf18402b2d58942ad0d0bd8b6"},
+        youtubeApiKey:         "AIzaSyAnn6gsFQJHhssPTS8ZByzHulTH0LvZCMA"
+      };
+        window.StudioConfig.publicPath = "https://files.instructuremedia.com/build/4fc0032211b899f487482c68cee7620d7da465b3"
+
+      window.NotoriousConfig = {
+        host: "https://nv.instructuremedia.com",
+        environment: "production"
+      };
+
+        var sentry_options = {
+          tags: {
+            region: "prod-iad"
+          },
+          release: window.ARC_VERSION
+        };
+        Raven.config("https://9b83c0ce57a741c992346af30cab004f@sentry.insops.net/34", sentry_options).install();
+    </script>
+  </head>
+  <body>
+
+    
+<div id="App"></div>
+<div id="instuiAlerts--visible" role="alert"></div>
+<div id="instuiAlerts--alert" role="alert"></div>
+<div id="instuiAlerts--status" role="alert"></div>
+<script src="https://files.instructuremedia.com/build/4fc0032211b899f487482c68cee7620d7da465b3/__build__/vendor/vendor-cfbb885b3ad4e8cb92d0.js"></script>
+<script src="https://files.instructuremedia.com/build/4fc0032211b899f487482c68cee7620d7da465b3/__build__/default/app-7e7825ac2ee80a5cf8f7.js"></script>
+
+<noscript>
+  <h1>Oh no, we can&#39;t find your Javascripts!</h1>
+  <p><a href="http://activatejavascript.org" target="_blank">Please enable Javascript to use Studio.</a></p>
+</noscript>
+
+
+<script>
+  (function(apiKey){
+      (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
+      v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
+          o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+          y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+          z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+  })('aa4fbae7-e843-4039-5303-2a5baa88cce3');
+</script>
+
+
+
+  </body>
+</html>
