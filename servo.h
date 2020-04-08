@@ -12,7 +12,10 @@
 #include "open_interface.h"
 
 
-void servo_set_angle(float angle);
+void servo_set_angle(int angle);
 
 
 void servo_init();
+
+
+unsigned int servo_get_match_val();

@@ -198,4 +198,35 @@ void uart_sendStr(const char *data){
     }
 
 
+
+
+
+
+
+}
+
+
+//TODO
+// I want this to store the most recent char sent and controlled by interrupt
+char getInturuptChar(){
+    return 0;
+}
+
+
+char* receive_string(char str[], int size)
+{
+    int i = 0;
+    while (i < size - 1)
+    {
+        str[i] = uart_receive();
+        if (str[i] == '\n' || str[i] == '\r')
+        {
+            break;
+        }
+        i++;
+    }
+    str[i] = '\0';
+
+    return str;
+
 }

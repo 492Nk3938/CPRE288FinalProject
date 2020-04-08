@@ -9,6 +9,10 @@
 #include "open_interface.h"
 
 
+unsigned int scaler;
+int offset;
+unsigned int matchVal;
+
 void servo_init(){
   //Enable clock for port b
    SYSCTL_RCGCGPIO_R |= 0x02;
@@ -54,14 +58,43 @@ void servo_init(){
 
 
 
-void servo_set_angle(float angle){
+void servo_set_angle(int angle){
 
-    TIMER1_TBMATCHR_R = (195 * 100 * 16);
-    TIMER1_TBPMR_R = (195 * 100 * 16) >> 16;
+    //TODO Need to make the angle changeable
 
 
+    //Data sheet says we can convert between angle and time with mx+b.
+    // This lets us change the values in the code
+    matchVal= scaler * angle + offset;
+
+    TIMER1_TBMATCHR_R = (matchVal);
+    TIMER1_TBPMR_R = (matchVal) >> 16;
 
 }
 
+void servo_set_match_val(unsigned int val){
+    matchVal = val;
+}
+
+
+void servo_set_scalling_for_function(int m){
+    scaler = m;
+}
+
+void servo_set_offset_for_function(int b){
+    offset = b;
+}
+
+unsigned int servo_get_match_val(){
+    return matchVal;
+}
+
+unsigned int servo_get_scaleing(){
+    return scaler;
+}
+
+int servo_get_offset(){
+    return offset;
+}
 
 
