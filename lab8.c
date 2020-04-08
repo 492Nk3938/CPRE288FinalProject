@@ -81,14 +81,12 @@ int main(void)
     // counter clockwise when clockwise = -1
     int clockwise = -1;
     int angle = 90;
-    int char_array_size =40;
-    char myString[char_array_size];
-    myString[0] = 0;
+    char uartInput = 0;
 
 
 
     //TODO set up uart so that something can automatically get inturupted rather then busy waiting
-    while(myString[0] == 's'){
+    while(uartInput == 'q'){
 
         servo_set_angle(angle);
 
@@ -102,10 +100,10 @@ int main(void)
 
 
 
-        int input = button_getButton();
+        int buttonInput = button_getButton();
 
-        while(! input){
-            input = button_getButton();
+        while(! buttonInput){
+            buttonInput = button_getButton();
         }
 
 
@@ -113,7 +111,7 @@ int main(void)
 
 
 
-        if (input == 4)
+        if (buttonInput == 4)
         {
             if(clockwise == 1){
                 angle = 5;
@@ -122,15 +120,15 @@ int main(void)
             }
 
         }
-        else if (input == 3)
+        else if (buttonInput == 3)
         {
             clockwise *= -1;
         }
-        else if (input == 2)
+        else if (buttonInput == 2)
         {
             angle += clockwise * 5;
         }
-        else if (input == 1)
+        else if (buttonInput == 1)
         {
             angle += clockwise;
         }
@@ -152,7 +150,7 @@ int main(void)
 
 
         //TODO this function doesn't exist and needs to be created using inturupts so there is no need to busy wait
-        myString[0] = getInturuptChar();
+        uartInput = uart_get_char();
 
 
     }
@@ -175,34 +173,91 @@ int main(void)
 
     //TODO convert the 2-2 into commands and UI that uses UART to do all of the things for 2-2 and allows the user to adjust the angle to time stuff in servo
 
+    uartInput = 0;
+    while(uartInput == 's'){
+
+        servo_set_angle(angle);
 
 
 
-
-
-
-    lcd_printf("press 4 to end and 1,2, or 3 to get new scan");
-
-    while (1)
-    {
-
-
-//        while (!(button_getButton()))
-//        {
-//            if (button_getButton() == 4)
-//            {
-//                break;
-//            }
-//        }
-        if (button_getButton() == 4)
-        {
-            break;
+        //TODO uart send does not accept formated strings so I need to format them before I put it in.
+        if(clockwise == 1){
+            uart_sendStr("Dir: clockwise \n Angle: %d\n Match Val: %d", angle, servo_get_match_val());
+        }else{
+            uart_sendStr("Dir: counter clockwise \n Angle: %d\n Match Val: %d", angle, servo_get_match_val());
         }
 
-        lcd_printf("Distance in cm is %d\n press 4 to end and 1, 2, or 3 to get new scan", cmDistance());
-        timer_waitMillis(250);
+        uart_sendStr(" input an int for the scalling value. ( the m in the mx+b)");
+        servo_set_scalling_for_function(uart_get_int());
+
+        uartInput = uart_getChar();
+
+
+        if (uartInput == '6')
+        {
+
+            uart_sendStr(" input an int for the scalling value. ( the m in the mx+b)");
+            servo_set_scalling_for_function(uart_get_int());
+
+        }
+        else if (uartInput == '5')
+        {
+
+
+            uart_sendStr(" input an int for the offset value. ( the b in the mx+b)");
+            servo_set_offset_for_function(uart_get_int());
+
+
+
+
+        }else if (uartInput == '4')
+        {
+            if(clockwise == 1){
+                angle = 5;
+            }else{
+                angle = 175;
+            }
+
+        }
+        else if (uartInput == '3')
+        {
+            clockwise *= -1;
+        }
+        else if (uartInput == '2')
+        {
+            angle += clockwise * 5;
+        }
+        else if (uartInput == '1')
+        {
+            angle += clockwise;
+        }
+        else
+        {
+
+            uart_sendStr("you didn't press a valid key");
+
+        }
+
+
+        if(angle < 0){
+            angle = 0;
+        }
+        if(angle > 180){
+            angle = 180;
+        }
+
 
     }
+
+
+
+
+
+
+
+
+
+
 
     lcd_printf("goodbye");
 
