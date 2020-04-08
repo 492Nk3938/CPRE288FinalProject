@@ -37,6 +37,8 @@ char getInturuptChar();
 
 char* receive_string(char str[], int size);
 
+int uart_receive_int();
+
 
 
 #endif /* UART_H_ */

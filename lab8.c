@@ -84,25 +84,22 @@ int main(void)
     char uartInput = 0;
 
 
-
+    int buttonInput = 0;
     //TODO set up uart so that something can automatically get inturupted rather then busy waiting
-    while(uartInput == 'q'){
+    while(uartInput != 5){
 
         servo_set_angle(angle);
 
         if(clockwise == 1){
-            lcd_printf("Dir: clockwise \n Angle: %d\n Match Val: %d", angle, servo_get_match_val());
+            lcd_printf("Dir: clockwise \n Angle: %d\n Match Val: %d\npress 1 and 4 to exit", angle, servo_get_match_val());
         }else{
-            lcd_printf("Dir: counter clockwise \n Angle: %d\n Match Val: %d", angle, servo_get_match_val());
+            lcd_printf("Dir: counter clockwise \n Angle: %d\n Match Val: %d\npress 1 and 4 to exit", angle, servo_get_match_val());
         }
 
 
+        buttonInput = button_getButton();
 
-
-
-        int buttonInput = button_getButton();
-
-        while(! buttonInput){
+        while(!buttonInput){
             buttonInput = button_getButton();
         }
 
@@ -147,12 +144,6 @@ int main(void)
             angle = 180;
         }
 
-
-
-        //TODO this function doesn't exist and needs to be created using inturupts so there is no need to busy wait
-        uartInput = uart_get_char();
-
-
     }
 
 
@@ -173,6 +164,7 @@ int main(void)
 
     //TODO convert the 2-2 into commands and UI that uses UART to do all of the things for 2-2 and allows the user to adjust the angle to time stuff in servo
 
+    char myString[60];
     uartInput = 0;
     while(uartInput == 's'){
 
@@ -181,23 +173,35 @@ int main(void)
 
 
         //TODO uart send does not accept formated strings so I need to format them before I put it in.
-        if(clockwise == 1){
-            uart_sendStr("Dir: clockwise \n Angle: %d\n Match Val: %d", angle, servo_get_match_val());
-        }else{
-            uart_sendStr("Dir: counter clockwise \n Angle: %d\n Match Val: %d", angle, servo_get_match_val());
+        if (clockwise == 1)
+        {
+
+            snprintf(myString, 60,
+                     "Dir: clockwise \n Angle: %d\n Match Val: %d", angle,
+                     servo_get_match_val());
+
+        }
+        else
+        {
+            snprintf(myString, 60,
+                     "Dir: counter clockwise \n Angle: %d\n Match Val: %d",
+                     angle, servo_get_match_val());
+
         }
 
-        uart_sendStr(" input an int for the scalling value. ( the m in the mx+b)");
-        servo_set_scalling_for_function(uart_get_int());
+        uart_sendStr(myString);
 
-        uartInput = uart_getChar();
+        uart_sendStr(" input an int for the scalling value. ( the m in the mx+b)");
+        servo_set_scalling_for_function(uart_receive_int());
+
+        uartInput = uart_receive();
 
 
         if (uartInput == '6')
         {
 
             uart_sendStr(" input an int for the scalling value. ( the m in the mx+b)");
-            servo_set_scalling_for_function(uart_get_int());
+            servo_set_scalling_for_function(uart_receive_int());
 
         }
         else if (uartInput == '5')
@@ -205,7 +209,7 @@ int main(void)
 
 
             uart_sendStr(" input an int for the offset value. ( the b in the mx+b)");
-            servo_set_offset_for_function(uart_get_int());
+            servo_set_offset_for_function(uart_receive_int());
 
 
 
@@ -248,13 +252,6 @@ int main(void)
 
 
     }
-
-
-
-
-
-
-
 
 
 

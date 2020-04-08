@@ -106,8 +106,15 @@ uint8_t button_getButton() {
 
     // INSERT CODE HERE!
 
-        if(!(GPIO_PORTE_DATA_R & 0b00001000))//checks 4th (rightmost) button
+        if(!(GPIO_PORTE_DATA_R & 0b00001000)){//checks 4th (rightmost) button
+
+            if(!(GPIO_PORTE_DATA_R & 0b00000001)) //checks 1st (leftmost) button
+                return 5;
+
             return 4;
+
+
+        }
         if(!(GPIO_PORTE_DATA_R & 0b00000100)) //checks 3rd (middle right) button
             return 3;
         if(!(GPIO_PORTE_DATA_R & 0b00000010)) //checks 2nd (middle left) button

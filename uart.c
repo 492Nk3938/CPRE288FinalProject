@@ -206,13 +206,6 @@ void uart_sendStr(const char *data){
 }
 
 
-//TODO
-// I want this to store the most recent char sent and controlled by interrupt
-char getInturuptChar(){
-    return 0;
-}
-
-
 char* receive_string(char str[], int size)
 {
     int i = 0;
@@ -230,3 +223,115 @@ char* receive_string(char str[], int size)
     return str;
 
 }
+
+
+
+
+
+short digit(char c){
+
+    switch(c) {
+       case '0' :
+           return 0;
+       case '1' :
+           return 1;
+       case '2' :
+           return 2;
+       case '3' :
+           return 3;
+       case '4' :
+           return 4;
+       case '5' :
+           return 5;
+       case '6' :
+           return 6;
+       case '7' :
+           return 7;
+       case '8' :
+           return 8;
+       case '9' :
+           return 9;
+       default :
+          return -1;
+    }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+int uart_receive_int(){
+    int sign;
+
+    char input = uart_receive();
+
+    int returnInt = 0;
+
+
+
+
+    input = uart_receive();
+
+    while (!((digit(input) > -1) || (input == '-')))
+    {
+        input = uart_receive();
+        uart_sendStr("please input an int");
+    }
+
+
+    if(input == '-'){
+        sign = -1;
+    } else{
+        sign = 1;
+    }
+
+    input = uart_receive();
+
+    while(!(digit(input) > -1)){
+
+        returnInt = returnInt * 10 + digit(input);
+
+        input = uart_receive();
+    }
+
+
+    return sign * returnInt;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
