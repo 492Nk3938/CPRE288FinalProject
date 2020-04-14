@@ -93,7 +93,7 @@ int main(void)
         if(clockwise == 1){
             lcd_printf("Dir: clockwise \n Angle: %d\n Match Val: %d\npress 1 and 4 to exit", angle, servo_get_match_val());
         }else{
-            lcd_printf("Dir: counter clockwise \n Angle: %d\n Match Val: %d\npress 1 and 4 to exit", angle, servo_get_match_val());
+            lcd_printf("Dir: co clockwise \n Angle: %d\n Match Val: %d\npress 1 and 4 to exit", angle, servo_get_match_val());
         }
 
 

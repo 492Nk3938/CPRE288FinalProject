@@ -13,6 +13,8 @@ unsigned int scaler;
 int offset;
 unsigned int matchVal;
 
+const int clock_cycle_per_mili_sec = 16000;
+
 void servo_init(){
   //Enable clock for port b
    SYSCTL_RCGCGPIO_R |= 0x02;
@@ -34,7 +36,7 @@ void servo_init(){
    TIMER1_TBMR_R |= 0xA;
    // start value in clock cycles (ms to clock cycles)
    unsigned int pwm_period;
-   pwm_period = 200 * 100 * 16;
+   pwm_period = 20 * clock_cycle_per_mili_sec;
 
    // lower 16 bits of start value
    TIMER1_TBILR_R = pwm_period & 0xFFFF; //This register can be completly over written
@@ -43,8 +45,8 @@ void servo_init(){
 
 
    //match value
-   TIMER1_TBMATCHR_R = (195 * 100 * 16);
-   TIMER1_TBPMR_R = (195 * 100 * 16) >> 16;
+   TIMER1_TBMATCHR_R = 18.5 * clock_cycle_per_mili_sec;
+   TIMER1_TBPMR_R = 18.5 * clock_cycle_per_mili_sec >> 16;
 
 
 
@@ -53,8 +55,8 @@ void servo_init(){
 
 
    //set the offsets to default
-   offset = 5;
-   scaler = 2;
+   offset = clock_cycle_per_mili_sec;
+   scaler = clock_cycle_per_mili_sec / 180 ; //
 
 
 }
@@ -64,28 +66,11 @@ void servo_init(){
 
 void servo_set_angle(int angle){
 
-    angle = angle%180;
-
-    //TODO Need to make the angle changeable
 
 
-    //Data sheet says we can convert between angle and time with mx+b.
-    // This lets us change the values in the code
-
-//
-//    CenterParallaxServo.spin
-//        For centering Parallax Continuous Rotation Servo
-//        or holding Parallax Standard Servo at 90° position.
-//        Sends a 1.5 ms pulse approx every 20
-//
-//
-
-//    To set to a 90 degree angle it needs to be 185, offset * 100 * 16
-//    I set the scaler to a default 2 and offset to 5 so it should work
-
-    matchVal = (scaler * angle + offset) * 100 * 16;
-
-
+    //offset is set to a default of clock_cycle_per_mili_sec/180 for 180 degree range
+    // offset is set to clock_cycle_per_mili_sec for the one extra millisecond
+    matchVal = 20 * clock_cycle_per_mili_sec - (offset * angle + offset);
 
 
     TIMER1_TBILR_R = (matchVal) & 0xFFFF;
