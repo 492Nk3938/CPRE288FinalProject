@@ -107,8 +107,9 @@ int main(void)
 
 
 
+        if (buttonInput == 5){
 
-        if (buttonInput == 4)
+        }else if (buttonInput == 4)
         {
             if(clockwise == 1){
                 angle = 5;
@@ -154,7 +155,9 @@ int main(void)
 
 
 
-    lcd_printf("Because 2-3 will use the putty terminal\n press any button to continue");
+    lcd_printf("Because 2-3 will use the putty terminal\n press any button to send the first message");
+
+    while(button_getButton() == 0){}
 
 
     uart_sendStr(" The same commands from 2-2 will be used,\n We've added 5 to adjust the scaler for the function to convert angle to time \n and 6 to adjust the offset");
@@ -172,26 +175,25 @@ int main(void)
 
 
 
-        //TODO uart send does not accept formated strings so I need to format them before I put it in.
         if (clockwise == 1)
         {
 
             snprintf(myString, 60,
-                     "Dir: clockwise \n Angle: %d\n Match Val: %d", angle,
+                     "Dir: clockwise \n Angle: %d\n Match Val: %d\n\r", angle,
                      servo_get_match_val());
 
         }
         else
         {
             snprintf(myString, 60,
-                     "Dir: counter clockwise \n Angle: %d\n Match Val: %d",
+                     "Dir: counter clockwise \n Angle: %d\n Match Val: %d\n\r",
                      angle, servo_get_match_val());
 
         }
 
         uart_sendStr(myString);
 
-        uart_sendStr(" input an int for the scalling value. ( the m in the mx+b)");
+        uart_sendStr("1:move 1 degree 1  \n\r2:move 5 degrees \n\r3:  switch direction \n\r  4: move to far side  \n\r5: Input offset value for function  \n\r6: Input scallar value for function");
         servo_set_scalling_for_function(uart_receive_int());
 
         uartInput = uart_receive();
@@ -200,7 +202,7 @@ int main(void)
         if (uartInput == '6')
         {
 
-            uart_sendStr(" input an int for the scalling value. ( the m in the mx+b)");
+            uart_sendStr(" input an int for the scalling value. ( the m in the mx+b)\n\r");
             servo_set_scalling_for_function(uart_receive_int());
 
         }
@@ -208,7 +210,7 @@ int main(void)
         {
 
 
-            uart_sendStr(" input an int for the offset value. ( the b in the mx+b)");
+            uart_sendStr(" input an int for the offset value. ( the b in the mx+b)\n\r");
             servo_set_offset_for_function(uart_receive_int());
 
 
@@ -238,7 +240,7 @@ int main(void)
         else
         {
 
-            uart_sendStr("you didn't press a valid key");
+            uart_sendStr("you didn't press a valid key\n\r");
 
         }
 
