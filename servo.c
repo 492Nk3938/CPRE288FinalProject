@@ -70,8 +70,11 @@ void servo_set_angle(int angle){
     // This lets us change the values in the code
     matchVal= scaler * angle + offset;
 
-    TIMER1_TBMATCHR_R = (matchVal);
-    TIMER1_TBPMR_R = (matchVal) >> 16;
+
+
+
+    TIMER1_TBILR_R = (matchVal) & 0xFFFF;
+    TIMER1_TBPR_R = (matchVal) >> 16;
 
 }
 
