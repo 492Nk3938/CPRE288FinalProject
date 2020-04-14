@@ -52,6 +52,9 @@ void servo_init(){
    TIMER1_CTL_R |= TIMER_CTL_TBEN;
 
 
+   offset = 0;
+   scaler = 160;
+
 
 }
 
