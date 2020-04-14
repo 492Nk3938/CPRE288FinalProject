@@ -34,7 +34,7 @@ void servo_init(){
    TIMER1_TBMR_R |= 0xA;
    // start value in clock cycles (ms to clock cycles)
    unsigned int pwm_period;
-   pwm_period = 20 * 1000 * 16;
+   pwm_period = 200 * 100 * 16;
 
    // lower 16 bits of start value
    TIMER1_TBILR_R = pwm_period & 0xFFFF; //This register can be completly over written
@@ -52,8 +52,9 @@ void servo_init(){
    TIMER1_CTL_R |= TIMER_CTL_TBEN;
 
 
-   offset = 0;
-   scaler = 160;
+   //set the offsets to default
+   offset = 5;
+   scaler = 2;
 
 
 }
@@ -63,12 +64,26 @@ void servo_init(){
 
 void servo_set_angle(int angle){
 
+    angle = angle%180;
+
     //TODO Need to make the angle changeable
 
 
     //Data sheet says we can convert between angle and time with mx+b.
     // This lets us change the values in the code
-    matchVal= scaler * angle + offset;
+
+//
+//    CenterParallaxServo.spin
+//        For centering Parallax Continuous Rotation Servo
+//        or holding Parallax Standard Servo at 90° position.
+//        Sends a 1.5 ms pulse approx every 20
+//
+//
+
+//    To set to a 90 degree angle it needs to be 185, offset * 100 * 16
+//    I set the scaler to a default 2 and offset to 5 so it should work
+
+    matchVal = (scaler * angle + offset) * 100 * 16;
 
 
 
