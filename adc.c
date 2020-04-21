@@ -14,6 +14,7 @@
 #include <string.h>
 #include "lcd.h"
 #include "button.h"
+#include "movement.h"
 
 #include "Timer.h"
 #include "open_interface.h"
@@ -158,13 +159,13 @@ int adc_createTable (int localMin, int localMax, int resolution){
     // move forward the min amount
     move_backwards(sensor_data, (double) min * 10);
 
-    table[i++] = get_data();
+    table[i++] = adc_get_data();
 
     while(i < size){
         lcd_printf("%d out of %d done", i, size);
         move_backwards(sensor_data, (double) resolution * 10);
         timer_waitMillis(250);
-        table[i++] = get_data();
+        table[i++] = adc_get_data();
         timer_waitMillis(250);
     }
 
@@ -179,7 +180,7 @@ int adc_createTable (int localMin, int localMax, int resolution){
 
 int adc_cmDistance(){
     int i = 0;
-    int data = get_data();
+    int data = adc_get_data();
 
     while(i< size){
 
