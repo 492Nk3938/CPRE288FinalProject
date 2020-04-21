@@ -3,6 +3,7 @@
  *
  *  Created on: Apr 1, 2020
  *      Author: Adamson, Bryanna M
+ *      Additions and edits by Nicholas Krabbenhoft
  */
 
 #include <inc/tm4c123gh6pm.h>
@@ -15,6 +16,9 @@ unsigned int matchVal;
 
 const int clock_cycle_per_mili_sec = 16000;
 
+/**
+ * Function to initialize the serve, uses port b pin 5
+ */
 void servo_init(){
   //Enable clock for port b
    SYSCTL_RCGCGPIO_R |= 0x02;
@@ -63,7 +67,9 @@ void servo_init(){
 
 
 
-
+/**
+ * Function that takes an int and sets the angle of the servo to that int
+ */
 void servo_set_angle(int angle){
 
 
@@ -78,27 +84,47 @@ void servo_set_angle(int angle){
 
 }
 
+/**
+ * Function to set the match value for PWM
+ *
+ */
 void servo_set_match_val(unsigned int val){
     matchVal = val;
 }
 
-
+/**
+ * Function to set scaling function on the conversion from
+ * angle to pwm match value ( the m in mx+b)
+ */
 void servo_set_scalling_for_function(int m){
     scaler = m;
 }
 
+/**
+ * Function to set offset function on the conversion from
+ * angle to pwm match value ( the b in mx+b)
+ */
 void servo_set_offset_for_function(int b){
     offset = b;
 }
 
+/**
+ * Function to return the match value
+ */
 unsigned int servo_get_match_val(){
     return matchVal;
 }
 
+/**
+ * Function to return the scaling value ( the m in mx+b)
+ */
 unsigned int servo_get_scaleing(){
     return scaler;
 }
 
+/**
+ * Function to return the offset value ( the b in mx+b)
+ */
 int servo_get_offset(){
     return offset;
 }
