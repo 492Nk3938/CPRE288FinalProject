@@ -20,7 +20,7 @@ const int clock_cycle_per_mili_sec = 16000;
 /**
  * Function that takes an int and sets the angle of the servo to that int
  */
-void servo_set_angle(int angle);
+int servo_set_angle(int angle);
 
 /**
  * Function to initialize the serve, uses port b pin 5
@@ -77,8 +77,13 @@ void servo_init(){
 
 /**
  * Function that takes an int and sets the angle of the servo to that int
+ * The servo is designed to operate within 0 and 180 degree's
+ * return -1 for error and 1 for success
  */
-void servo_set_angle(int angle){
+int servo_set_angle(int angle){
+    if(angle < 0 || angle > 180){
+        return -1;
+    }
 
 
 
@@ -89,6 +94,8 @@ void servo_set_angle(int angle){
 
     TIMER1_TBILR_R = (matchVal) & 0xFFFF;
     TIMER1_TBPR_R = (matchVal) >> 16;
+
+    return 1;
 
 }
 

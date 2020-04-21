@@ -12,7 +12,7 @@
 #include "open_interface.h"
 
 
-void servo_set_angle(int angle);
+int servo_set_angle(int angle);
 
 
 void servo_init();
