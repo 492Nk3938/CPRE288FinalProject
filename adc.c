@@ -85,7 +85,7 @@ int adc_init(oi_t *sensor_ptr){
 }
 
 
-int get_data(){
+int adc_get_data(){
 
     ADC0_PSSI_R |= 0b1;
     while(!(ADC0_RIS_R & 0x1)){}
@@ -106,7 +106,7 @@ int get_data(){
 
 
 
-int calabrate(){
+int adc_calabrate(){
 
     ADC0_PSSI_R |= 0b1;
     while(!(ADC0_RIS_R & 0x1)){}
@@ -131,7 +131,7 @@ int calabrate(){
 /*
  * Function that takes the min, max and resolution size the scanner should be calabrared for and creates it useing movment and a wall it starts next to
  */
-int createTable (int localMin, int localMax, int resolution){
+int adc_createTable (int localMin, int localMax, int resolution){
     min = localMin;
     max = localMax;
 
@@ -177,7 +177,7 @@ int createTable (int localMin, int localMax, int resolution){
 
 
 
-int cmDistance(){
+int adc_cmDistance(){
     int i = 0;
     int data = get_data();
 

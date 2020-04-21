@@ -20,10 +20,10 @@
 #include "open_interface.h"
 
 
-int get_data();
+int adc_get_data();
 int adc_init(oi_t *sensor_data);
-int createTable (int localMin, int localMax, int resolution);
-int cmDistance();
+int adc_createTable (int localMin, int localMax, int resolution);
+int adc_cmDistance();
 
 
 #endif /* ADC_H_ */
