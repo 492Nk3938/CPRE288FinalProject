@@ -16,6 +16,12 @@ unsigned int matchVal;
 
 const int clock_cycle_per_mili_sec = 16000;
 
+
+/**
+ * Function that takes an int and sets the angle of the servo to that int
+ */
+void servo_set_angle(int angle);
+
 /**
  * Function to initialize the serve, uses port b pin 5
  */
@@ -50,7 +56,7 @@ void servo_init(){
 
    //match value
    TIMER1_TBMATCHR_R = 18.5 * clock_cycle_per_mili_sec;
-   TIMER1_TBPMR_R = 18.5 * clock_cycle_per_mili_sec >> 16;
+   TIMER1_TBPMR_R = ((TIMER1_TBMATCHR_R) >> 16);
 
 
 
@@ -61,6 +67,8 @@ void servo_init(){
    //set the offsets to default
    offset = clock_cycle_per_mili_sec;
    scaler = clock_cycle_per_mili_sec / 180 ; //
+
+   servo_set_angle(90);
 
 
 }
