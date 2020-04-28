@@ -25,8 +25,10 @@
 #include "uart.h"
 #include "adc.h"
 #include "pingNicholas.h"
+#include <math.h>
 
-
+// 22 / 7 is roughly PI
+#define PI 22/7
 
 
 const int increment_to_scan = 2;
@@ -37,10 +39,20 @@ const int max_IR_distance = 80;
 
 //TODO make function to calculate size of the object
 //look in lecture slides for formula
+/* After some googling it looks like the "chord length" is
+ * what I want to find. This gives me the size of the object is
+ * the squareroot( 2 r^2 - 2 r^2 * cos( end_angle - start_angle)
+ */
 int calculate_size_of_object(int start_angle, int end_angle, int distance){
+    float r = (float) distance;
 
 
-    return -1;
+    // convert it to radians and find the difference
+    float theta = ((float) (end_angle - start_angle)) * PI / 180;
+
+
+    //TODO I am confused if sqrt takes only doubles or float. I saw some docs that said both
+    return sqrt( (2 * distance * distance - 2 * distance * distance * cos( theta ))
 
 }
 
@@ -87,7 +99,6 @@ int scan_for_objects(int size, int return_data[size][4]){
 
         }
 
-        //TODO set angle increment to scan
         angle += increment_to_scan;
 
     }

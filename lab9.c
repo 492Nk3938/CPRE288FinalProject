@@ -26,16 +26,20 @@
 #define REPLACEME 0
 
 
-
-
-
-
 void drive();
-
 
 void scan();
 
 void calabrate();
+
+
+/**
+ * Implement the data collection and analysis functionality specified in Part 1 to detect at least one object
+ * and estimate object width. Be sure to walk through your code before submitting it.
+ * Note: If you completed extra credit parts for Lab 8 supporting user inputs and/or user-assisted calibration,
+ * your implementation may include those parts. Be sure to include brief instructions for the user to operate
+ * your system.
+ */
 
 
 
@@ -160,7 +164,7 @@ void scan(){
     {
 
         //Directions for this sub menu
-        uart_sendStr("Here are the instructions \r\n    Press 1: To output a scann of all objects in front of you");
+        uart_sendStr("Here are the instructions \r\n    Press 1: To output a scan of all objects in front of you");
 
         char uartInput = uart_receive();
 
@@ -178,6 +182,8 @@ void scan(){
 
             int data_from_scan[size][4];
 
+            //This returns the data array full of information on where the scans are
+            // and returns an int for the number of objects found
             int number_of_objects = scan_for_objects(size, data_from_scan);
 
 
@@ -205,15 +211,8 @@ void scan(){
 
             break;
         }
-        case '2':
-            break;
-
-        case '3':
-            break;
-        case '4':
-
-            break;
         case 'q':
+            return;
             break;
 
         default:
@@ -262,7 +261,6 @@ void drive(){
 
         }
     }
-
 
 }
 
