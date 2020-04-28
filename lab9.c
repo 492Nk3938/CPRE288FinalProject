@@ -122,6 +122,8 @@ void calabrate(){
     while (!stop)
     {
 
+        uart_sendStr("The commands are:\r\n \t 1: give a int to set the servo to");
+
         //Directions for this sub menu
         uart_sendStr("");
 
@@ -131,6 +133,30 @@ void calabrate(){
         {
 
         case '1':
+
+
+            uart_sendStr("please give an int to set the servo to\r\n");
+
+
+
+            servo_set_angle(uart_receive_int());
+
+
+
+            char string_to_send[100];
+
+            snprintf(
+                    string_to_send,
+                    100,
+                    "Match value is %d\r\n",
+                    servo_get_match_val);
+
+            uart_sendStr(string_to_send);
+
+
+
+
+
 
             break;
 
@@ -211,9 +237,12 @@ void scan(){
 
             break;
         }
+
+
+
         case 'q':
             return;
-            break;
+
 
         default:
             uart_sendStr("I don't recognize that command");

@@ -11,8 +11,6 @@
 
 
 
-
-
 /**
  * This function will take a 2d array of 4 colums and size rows, where size is the number of objects it can find.
  * The first 2 rows will be the angles the object is first found at and the last angle it is seen at.
@@ -44,15 +42,15 @@ const int max_IR_distance = 80;
  * the squareroot( 2 r^2 - 2 r^2 * cos( end_angle - start_angle)
  */
 int calculate_size_of_object(int start_angle, int end_angle, int distance){
+    //r for radius
     float r = (float) distance;
 
 
     // convert it to radians and find the difference
     float theta = ((float) (end_angle - start_angle)) * PI / 180;
 
-
     //TODO I am confused if sqrt takes only doubles or float. I saw some docs that said both
-    return sqrt( (2 * distance * distance - 2 * distance * distance * cos( theta ))
+    return sqrt( (2 * r * r - 2 * r * r * cos( theta )));
 
 }
 

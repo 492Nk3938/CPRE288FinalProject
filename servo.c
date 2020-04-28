@@ -44,6 +44,8 @@ void servo_init(){
    TIMER1_CFG_R |= 0x04;
    //Set TIMER mode, PWM mode with periodic count
    TIMER1_TBMR_R |= 0xA;
+
+
    // start value in clock cycles (ms to clock cycles)
    unsigned int pwm_period;
    pwm_period = 20 * clock_cycle_per_mili_sec;
@@ -68,7 +70,7 @@ void servo_init(){
    offset = clock_cycle_per_mili_sec;
    scaler = clock_cycle_per_mili_sec / 180 ; //
 
-   servo_set_angle(90);
+  // servo_set_angle(90);
 
 
 }
