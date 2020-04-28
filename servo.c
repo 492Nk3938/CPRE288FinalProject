@@ -10,8 +10,8 @@
 #include "open_interface.h"
 
 
-unsigned int scaler;
-int offset;
+float scaler;
+float offset;
 unsigned int matchVal;
 
 const int clock_cycle_per_mili_sec = 16000;
@@ -67,8 +67,8 @@ void servo_init(){
 
 
    //set the offsets to default
-   offset = clock_cycle_per_mili_sec;
-   scaler = clock_cycle_per_mili_sec / 180 ; //
+   offset = 17;
+   scaler = 1/60 ; //
 
   // servo_set_angle(90);
 
@@ -86,6 +86,11 @@ int servo_set_angle(int angle){
     if(angle < 0 || angle > 180){
         return -1;
     }
+
+
+    //TODO how to convert angle to sec
+
+
 
 
 
