@@ -16,9 +16,10 @@
 //initialize the push buttons
 void button_init();
 
-
-///Non-blocking call
-///Returns highest value button being pressed, 0 if no button pressed
+/**
+ Non-blocking call
+ Returns highest value button being pressed, 0 if no button pressed
+ */
 uint8_t button_getButton();
 
 

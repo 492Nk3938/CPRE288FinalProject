@@ -2,7 +2,7 @@
  * movement.c
  *
  *  Created on: Jan 28, 2020
- *      Author: hmajeed
+ *      Author: hmajeed & Nicholas Krabbenhoft
  */
 #include "open_interface.h"
 
@@ -29,7 +29,10 @@ int left_square(oi_t *sensor_data, double size);
 
 
 
-
+/**
+ * Function to move forward a number of mm and if the bump
+ * sensors are triggered it will back up and turn to avaoid the object
+ */
 double move_forward_with_bump(oi_t *sensor_data, double distance_mm){
     double sum = 0; // distance member in oi_t struct is type double
     oi_setWheels(robot_speed, robot_speed); //move forward at reduced speed
@@ -39,7 +42,7 @@ double move_forward_with_bump(oi_t *sensor_data, double distance_mm){
         sum += sensor_data->distance; // use -> notation since pointer
 
         /* This chunk handles Collision to allow robot to move around object if it bumpps into it*/
-        if(sensor_data-> bumpLeft ||sensor_data-> bumpRight){
+        if(sensor_data-> bumpLeft || sensor_data-> bumpRight){
             oi_setWheels(0, 0);
             move_backwards(sensor_data, amount_to_backup_mm);
                     if(sensor_data-> bumpLeft){
@@ -61,7 +64,9 @@ double move_forward_with_bump(oi_t *sensor_data, double distance_mm){
 
 
 
-
+/**
+ * Function to move forward an amount of mm
+ */
 double move_forward(oi_t *sensor_data, double distance_mm)
 {
     if(distance_mm < 0){
@@ -78,6 +83,10 @@ double move_forward(oi_t *sensor_data, double distance_mm)
     return 0;
 }
 
+
+/**
+ * Function to turn right some amount of degrees
+ */
 double turn_right(oi_t *sensor_data, double degrees)
 {
     double sum = 0; // distance member in oi_t struct is type double
@@ -91,6 +100,10 @@ double turn_right(oi_t *sensor_data, double degrees)
     return 0;
 }
 
+
+/**
+ * Function to turn left some amount of degrees
+ */
 double turn_left(oi_t *sensor_data, double degrees)
 {
 
@@ -105,6 +118,9 @@ double turn_left(oi_t *sensor_data, double degrees)
     return 0;
 }
 
+/**
+ * Function to move backwards a certain number of mm
+ */
 double move_backwards(oi_t *sensor_data, double distance_mm){
     if(distance_mm < 0){
         move_forward(sensor_data, -1*distance_mm);
@@ -124,7 +140,9 @@ double move_backwards(oi_t *sensor_data, double distance_mm){
 
 
 
-
+/**
+ * Function to move in a square turning right at the corners
+ */
 int right_square(oi_t *sensor_data, double size){
      move_forward(sensor_data, size);
      turn_right(sensor_data, 90);
@@ -139,6 +157,9 @@ int right_square(oi_t *sensor_data, double size){
      return 0;
  }
 
+/**
+ * Function to move in a square turning left at the corners
+ */
  int left_square(oi_t *sensor_data, double size){
      move_forward(sensor_data, size);
      turn_left(sensor_data, 90);
