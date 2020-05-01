@@ -4,11 +4,24 @@
  * lab 9
  *
  * @author Nicholas Krabbenhoft
+ *
+ *
+ * This is set up as a menu system where you can select what sub menu you want to use
+ * and then select the function you want the robot to execute. This allows a lot of
+ * expandibility. User interface is through UART.
+ *
+ *
+ *
+ *
+ *
  */
+
+
+
+
 
 #include <stdio.h>
 #include <string.h>
-
 #include "Timer.h"
 #include "lcd.h"
 #include "cyBot_Scan.h"  // For scan sensors
@@ -16,7 +29,6 @@
 #include "movement.h"
 #include "button.h"
 #include "open_interface.h"
-#include "movement.h"
 #include "scan.h"
 #include "servo.h"
 #include "uart.h"
@@ -44,19 +56,24 @@ void calabrate();
 
 
 
-
+/**
+ * main function that holds the top level menu and initilization and breakdown of the program
+ */
 int main(void)
 {
+
+
 
     timer_init(); // Must be called before lcd_init(), which uses timer functions
     lcd_init();
     uart_init();
     button_init();
-
     oi_t *sData = oi_alloc(); // do this only once at start of main()
     oi_init(sData); // do this only once at start of main()
     adc_init(sData);
 
+    //Function that creates the lookup table for the adc sensor
+    adc_createTable (5, 70, 2);
 
 
     lcd_printf("This uses the UART for all commands, press any button to start the program");
@@ -70,7 +87,7 @@ int main(void)
 
 
         //Instructions
-        uart_sendStr("");
+        uart_sendStr("Instructions \r\n\t 1: calibration functions\r\n\t 2: scan functions\r\n\t3: drive functions \r\n\t q: end the program");
 
 
         uartInput = uart_receive();
@@ -114,7 +131,9 @@ int main(void)
 }
 
 
-//TODO design all of this interface
+/**
+ * Set of functions to calibrate the different sensors on the
+ */
 void calabrate(){
 
     int stop = 0;
@@ -122,7 +141,7 @@ void calabrate(){
     while (!stop)
     {
 
-        uart_sendStr("The commands are:\r\n \t 1: give a int to set the servo to");
+        uart_sendStr("The commands are:\r\n \t 1: give a int to set the servo to that angle");
 
         //Directions for this sub menu
         uart_sendStr("");
@@ -137,11 +156,7 @@ void calabrate(){
 
             uart_sendStr("please give an int to set the servo to\r\n");
 
-
-
             servo_set_angle(uart_receive_int());
-
-
 
             char string_to_send[100];
 
@@ -152,10 +167,6 @@ void calabrate(){
                     servo_get_match_val);
 
             uart_sendStr(string_to_send);
-
-
-
-
 
 
             break;
@@ -169,7 +180,8 @@ void calabrate(){
 
             break;
         case 'q':
-            break;
+            return;
+
 
         default:
             uart_sendStr("I don't recognize that command");
@@ -181,7 +193,9 @@ void calabrate(){
 }
 
 
-//TODO design all of this interface
+/**
+ * Set of functions to scan the environment and get the info to the UART terminal
+ */
 void scan(){
 
     int stop = 0;
@@ -190,22 +204,27 @@ void scan(){
     {
 
         //Directions for this sub menu
-        uart_sendStr("Here are the instructions \r\n    Press 1: To output a scan of all objects in front of you");
+        uart_sendStr("Here are the instructions \r\n\tPress 1: To output a scan of all objects in front of you");
 
         char uartInput = uart_receive();
 
         switch(uartInput)
         {
 
+        /**
+         * This function will give a list of all objects sizes in front of the sensor and the angle and distance to them
+         */
         case '1':
         {
 
-            //TODO do we want to be able to make this a global
-            //or function wide in order to keep track of it and use it for the other functions
-            uart_sendStr("How many objects do you want to be able to find\r\n");
 
+            uart_sendStr("How many objects do you want to be able to find\r\n");
             int size = uart_receive_int();
 
+
+
+            //TODO do we want to be able to make this a global
+            //or function wide in order to keep track of it and use it for the other functions
             int data_from_scan[size][4];
 
             //This returns the data array full of information on where the scans are
@@ -226,7 +245,7 @@ void scan(){
                 snprintf(
                         string_to_send,
                         100,
-                        "object %d is at angle %d, %d cms away and is %d cms large\r\n",
+                        "\t object %d is at angle %d, %d cms away and is %d cms large\r\n",
                         i, (data_from_scan[i][0] + data_from_scan[i][1]) / 2,
                         data_from_scan[i][2], data_from_scan[i][2]);
 
