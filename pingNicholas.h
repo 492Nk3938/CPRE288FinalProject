@@ -67,7 +67,7 @@ void pingInturuptHandler();
 
 /**
  * This is the set of functions that control timer 3B.
- * TODO I may want to move this to it's owen files
+ * TODO I may want to move this to it's own files
  */
 unsigned int timerCalcMilisec();
 void startClock();

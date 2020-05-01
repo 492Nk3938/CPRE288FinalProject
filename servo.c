@@ -17,10 +17,6 @@ unsigned int matchVal;
 const int clock_cycle_per_mili_sec = 16000;
 
 
-/**
- * Function that takes an int and sets the angle of the servo to that int
- */
-int servo_set_angle(int angle);
 
 /**
  * Function to initialize the serve, uses port b pin 5
@@ -70,8 +66,6 @@ void servo_init(){
    offset = 17;
    scaler = 1/60 ; //
 
-  // servo_set_angle(90);
-
 
 }
 
@@ -88,15 +82,20 @@ int servo_set_angle(int angle){
     }
 
 
-    //TODO how to convert angle to sec
 
 
 
 
+    /*********** Trouble spot ***************/
+    // This is an area I struggled with a lot and may cause bugs in the future
 
-    //offset is set to a default of clock_cycle_per_mili_sec/180 for 180 degree range
-    // offset is set to clock_cycle_per_mili_sec for the one extra millisecond
-    matchVal = 20 * clock_cycle_per_mili_sec - (offset * angle + offset);
+    // documentation states that I should be able to convert angle to
+    // amount of time to by high and low by a linear function.
+    // This is an attempt to do that. The angle is multiplied by the scaller
+    // which should be 1/60th I beleve and then added to the offset of 17.
+    // This means if the angle is 180 then scaler * angle + offset should be
+    // 20 so the match value is 0
+    matchVal = (20 - (scaler * angle + offset)) * clock_cycle_per_mili_sec;
 
 
     TIMER1_TBILR_R = (matchVal) & 0xFFFF;

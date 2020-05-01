@@ -32,11 +32,18 @@ char uart_receive(void);
 // Sends each char in the string one at a time
 void uart_sendStr(const char *data);
 
-char getInturuptChar();
 
 
+/**
+ * Function that takes a string and size then inputs chars into it until
+ * either a return, or newline is reached or it runs out of space
+ */
 char* receive_string(char str[], int size);
 
+
+/**
+ * Function that interprets the UART input as an int and returns that
+ */
 int uart_receive_int();
 
 
